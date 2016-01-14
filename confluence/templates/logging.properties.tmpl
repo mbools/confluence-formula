@@ -1,4 +1,4 @@
-{%- from 'jira/conf/settings.sls' import jira with context %}   
+{%- from 'confluence/conf/settings.sls' import jira with context %}   
 
 handlers = 1catalina.org.apache.juli.FileHandler, 2localhost.org.apache.juli.FileHandler, 3manager.org.apache.juli.FileHandler, 4host-manager.org.apache.juli.FileHandler, java.util.logging.ConsoleHandler
 
@@ -10,19 +10,19 @@ handlers = 1catalina.org.apache.juli.FileHandler, 2localhost.org.apache.juli.Fil
 ############################################################
 
 1catalina.org.apache.juli.FileHandler.level = FINE
-1catalina.org.apache.juli.FileHandler.directory = {{ jira.log_root }} 
+1catalina.org.apache.juli.FileHandler.directory = {{ confluence.log_root }} 
 1catalina.org.apache.juli.FileHandler.prefix = catalina.
 
 2localhost.org.apache.juli.FileHandler.level = FINE
-2localhost.org.apache.juli.FileHandler.directory = {{ jira.log_root }}
+2localhost.org.apache.juli.FileHandler.directory = {{ confluence.log_root }}
 2localhost.org.apache.juli.FileHandler.prefix = localhost.
 
 3manager.org.apache.juli.FileHandler.level = FINE
-3manager.org.apache.juli.FileHandler.directory = {{ jira.log_root }}
+3manager.org.apache.juli.FileHandler.directory = {{ confluence.log_root }}
 3manager.org.apache.juli.FileHandler.prefix = manager.
 
 4host-manager.org.apache.juli.FileHandler.level = FINE
-4host-manager.org.apache.juli.FileHandler.directory = {{ jira.log_root }}
+4host-manager.org.apache.juli.FileHandler.directory = {{ confluence.log_root }}
 4host-manager.org.apache.juli.FileHandler.prefix = host-manager.
 
 java.util.logging.ConsoleHandler.level = FINE

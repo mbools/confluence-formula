@@ -1,30 +1,30 @@
 #!/bin/sh
 ### BEGIN INIT INFO
-# Provides:          jira
+# Provides:          confluence
 # Required-Start:    $local_fs $remote_fs $network $syslog $named
 # Required-Stop:     $local_fs $remote_fs $network $syslog $named
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # X-Interactive:     true
-# Short-Description: Start/stop jira server
+# Short-Description: Start/stop confluence server
 ### END INIT INFO
 
 set -e
 
-{%- from 'jira/conf/settings.sls' import jira with context %} 
+{%- from 'confluence/conf/settings.sls' import confluence with context %} 
 
 # Define some variables
 # Name of app ( JIRA, Confluence, etc )
-APP=jira
+APP=confluence
 # Name of the user to run as
-USER={{ jira.user }}
+USER={{ confluence.user }}
 # Location of application's bin directory
-BASE={{ jira.prefix }}/jira
+BASE={{ confluence.prefix }}/confluence
 # Location of Java JDK
 #export JAVA_HOME=/usr/lib/jvm/java-6-sun
-#export CATALINA_OUT={{ jira.log_root }}/catalina.out
+#export CATALINA_OUT={{ confluence.log_root }}/catalina.out
 
-export JIRA_HOME='{{ jira.home }}'
+export CONFLUENCE_HOME='{{ confluence.home }}'
 
 case "$1" in
   start)

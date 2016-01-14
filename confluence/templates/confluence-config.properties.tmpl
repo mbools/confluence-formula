@@ -1,0 +1,15 @@
+# This file used to override advanced confluence properties.
+# Syntax:
+# <property-name> = <value>
+#
+# A full list of property names and default values can be seen in:
+# <confluence-application-dir>/WEB-INF/classes/jpm.xml
+
+{%- from 'confluence/conf/settings.sls' import confluence with context %}   
+confluence.home = {{ confluence.home }}
+
+{%- for property_name, property_value in salt['pillar.get']('confluence:properties', {}).items() %}
+{{ property_name }} = {{ property_value }}
+{%- endfor %}
+
+

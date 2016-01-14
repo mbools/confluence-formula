@@ -1,16 +1,16 @@
-{% set p  = salt['pillar.get']('jira', {}) %}
-{% set g  = salt['grains.get']('jira', {}) %}
+{% set p  = salt['pillar.get']('confluence', {}) %}
+{% set g  = salt['grains.get']('confluence', {}) %}
 
 
-{%- set default_version      = '6.4' %}
+{%- set default_version      = '5.9.4' %}
 {%- set default_prefix       = '/opt' %}
-{%- set default_source_url   = 'https://downloads.atlassian.com/software/jira/downloads' %}
-{%- set default_log_root     = '/var/log/jira' %}
-{%- set default_jira_user    = 'jira' %}
+{%- set default_source_url   = 'https://downloads.atlassian.com/software/confluence/downloads' %}
+{%- set default_log_root     = '/var/log/confluence' %}
+{%- set default_confluence_user    = 'confluence' %}
 {%- set default_db_server    = 'localhost' %}
-{%- set default_db_name      = 'jira' %}
-{%- set default_db_username  = 'jira' %}
-{%- set default_db_password  = 'jira' %}
+{%- set default_db_name      = 'confluence' %}
+{%- set default_db_username  = 'confluence' %}
+{%- set default_db_password  = 'confluence' %}
 {%- set default_jvm_Xms      = '384m' %}
 {%- set default_jvm_Xmx      = '768m' %}
 {%- set default_jvm_MaxPermSize = '384m' %}
@@ -19,7 +19,7 @@
 {%- set source_url     = g.get('source_url', p.get('source_url', default_source_url)) %}
 {%- set log_root       = g.get('log_root', p.get('log_root', default_log_root)) %}
 {%- set prefix         = g.get('prefix', p.get('prefix', default_prefix)) %}
-{%- set jira_user      = g.get('user', p.get('user', default_jira_user)) %}
+{%- set confluence_user      = g.get('user', p.get('user', default_confluence_user)) %}
 {%- set db_server      = g.get('db_server', p.get('db_server', default_db_server)) %}
 {%- set db_name        = g.get('db_name', p.get('db_name', default_db_name)) %}
 {%- set db_username    = g.get('db_username', p.get('db_username', default_db_username)) %}
@@ -29,15 +29,15 @@
 {%- set jvm_MaxPermSize = g.get('jvm_MaxPermSize', p.get('jvm_MaxPermSize', default_jvm_MaxPermSize)) %}
 
 
-{%- set jira_home      = salt['pillar.get']('users:%s:home' % jira_user, '/home/jira') %}
+{%- set confluence_home      = salt['pillar.get']('users:%s:home' % confluence_user, '/home/confluence') %}
 
-{%- set jira = {} %}
-{%- do jira.update( { 'version'        : version,
+{%- set confluence = {} %}
+{%- do confluence.update( { 'version'        : version,
                       'source_url'     : source_url,
                       'log_root'       : log_root,
-                      'home'           : jira_home,
+                      'home'           : confluence_home,
                       'prefix'         : prefix,
-                      'user'           : jira_user,
+                      'user'           : confluence_user,
                       'db_server'      : db_server,
                       'db_name'        : db_name,
                       'db_username'    : db_username,
