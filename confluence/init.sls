@@ -6,6 +6,16 @@ include:
 #  - apache.vhosts.standard
 #  - apache.mod_proxy_http
 
+confluence:
+  group:
+    - present
+  user:
+    - present
+    - groups:
+      - confluence
+    - require:
+      - group: confluence
+
 ### APPLICATION INSTALL ###
 unpack-confluence-tarball:
   archive.extracted:
