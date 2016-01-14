@@ -18,7 +18,7 @@ JVM_MAXIMUM_MEMORY="{{ confluence.jvm_Xmx }}"
 #
 # The following are the required arguments for CONFLUENCE.
 #
-JVM_REQUIRED_ARGS='-Djava.awt.headless=true -Datlassian.standalone=CONFLUENCE -Dorg.apache.jasper.runtime.BodyContentImpl.LIMIT_BUFFER=true -Dmail.mime.decodeparameters=true -Dorg.dom4j.factory=com.atlassian.core.xml.InterningDocumentFactory'
+JVM_REQUIRED_ARGS='-Djava.awt.headless=true -Datlassian.standalone=JIRA -Dorg.apache.jasper.runtime.BodyContentImpl.LIMIT_BUFFER=true -Dmail.mime.decodeparameters=true -Dorg.dom4j.factory=com.atlassian.core.xml.InterningDocumentFactory -Djava.net.preferIPv4Stack=true'
 
 # Uncomment this setting if you want to import data without notifications
 #
