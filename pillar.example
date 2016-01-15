@@ -1,12 +1,12 @@
 confluence:
   # if developing locally, it's much faster to skip the atlassian download.
-  # Put your atlassian-confluence.tar.gz in salt/confluence/, and uncomment this:
-  # source_url: salt://confluence
+  # Put your atlassian-jira.tar.gz in salt/jira/, and uncomment this:
+  # source_url: salt://jira
+  source_hash: md5=a543fc55fd5caae42c835909ddb2384a
   version: 5.9.4
 
   jvm_Xms: 768m
   jvm_Xmx: 768m
 
-  # templates/confluence-config.properties.tmpl
-  properties:
+
 
