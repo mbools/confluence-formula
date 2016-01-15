@@ -25,4 +25,4 @@ Installs the confluence standalone tarball and starts the service.  Configures
 ``confluence.proxy``
 ------------------
 
-Enables a basic Apache proxy for confluence.
+Enables a basic Apache proxy for confluence. This currently requires https://github.com/simonwgill/apacheproxy-formula
