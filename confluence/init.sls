@@ -111,9 +111,9 @@ confluence-init-script:
     - listen_in:
       - module: confluence-restart
 
-{{ confluence.prefix }}/confluence/atlassian-confluence/WEB-INF/classes/confluence-application.properties:
+{{ confluence.prefix }}/confluence/confluence/WEB-INF/classes/confluence-init.properties:
   file.managed:
-    - source: salt://confluence/templates/confluence-application.properties.tmpl
+    - source: salt://confluence/templates/confluence-init.properties.tmpl
     - user: {{ confluence.user }}
     - template: jinja
     - listen_in:
