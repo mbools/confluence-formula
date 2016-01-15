@@ -14,6 +14,7 @@
 {%- set default_jvm_Xms      = '384m' %}
 {%- set default_jvm_Xmx      = '768m' %}
 {%- set default_jvm_MaxPermSize = '384m' %}
+{%- set default_webserver_fqdn = 'confluence.example.com' %}
 
 {%- set version        = g.get('version', p.get('version', default_version)) %}
 {%- set source_url     = g.get('source_url', p.get('source_url', default_source_url)) %}
@@ -27,7 +28,7 @@
 {%- set jvm_Xms        = g.get('jvm_Xms', p.get('jvm_Xms', default_jvm_Xms)) %}
 {%- set jvm_Xmx        = g.get('jvm_Xmx', p.get('jvm_Xmx', default_jvm_Xmx)) %}
 {%- set jvm_MaxPermSize = g.get('jvm_MaxPermSize', p.get('jvm_MaxPermSize', default_jvm_MaxPermSize)) %}
-
+{%- set webserver_fqdn = g.get('webserver_fqdn', p.get('webserver_fqdn', default_webserver_fqdn)) %}
 
 {%- set confluence_home      = salt['pillar.get']('users:%s:home' % confluence_user, '/home/confluence') %}
 
@@ -45,5 +46,6 @@
                       'jvm_Xms'        : jvm_Xms,
                       'jvm_Xmx'        : jvm_Xmx,
                       'jvm_MaxPermSize': jvm_MaxPermSize,
+                      'webserver_fqdn' : webserver_fqdn,
                   }) %}
 

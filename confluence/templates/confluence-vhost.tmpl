@@ -1,5 +1,6 @@
-<VirtualHost *:80>
-    ServerName confluence.example.com
+{%- from 'confluence/conf/settings.sls' import confluence with context %}
+<VirtualHost {{ confluence.webserver_fqdn }}:80>
+    ServerName {{ confluence.webserver_fqdn }}
  
     ProxyRequests Off
     <Proxy *>
